@@ -1,4 +1,4 @@
-import {render, screen} from "@testing-library/react";
+import {fireEvent, render, screen} from "@testing-library/react";
 import Home, {EMPTY_RESULT_HINT} from "@pages/";
 
 describe("<Home/>...", () => {
@@ -79,10 +79,11 @@ describe("<Home/>...", () => {
     });
 
     function submitFormWith(digit){
-        throw new Error("not implemented yet");
+        fireEvent.change(screen.getByRole('spinbutton'), { target: { value: digit.toString() } });
+        fireEvent.click(screen.getByRole('button'));
     }
 
     function gainFocusOnInput() {
-        throw new Error("not implemented yet");
+        fireEvent.focus(screen.getByRole('spinbutton'));
     }
 });
