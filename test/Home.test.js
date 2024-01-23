@@ -29,7 +29,12 @@ describe("<Home/>...", () => {
             expect(button).toBeInTheDocument();
         });
 
-        it.todo("hint text that a digit greater 0 has to be submitted");
+        // it.todo("hint text that a digit greater 0 has to be submitted");
+        it("renders the hint text that a digit greater than 0 has to be submitted", () => {
+            render(<Home/>);
+            const hintText = screen.getByText(EMPTY_RESULT_HINT);
+            expect(hintText).toBeInTheDocument();
+        });
 
         describe("result when...", () => {
 
