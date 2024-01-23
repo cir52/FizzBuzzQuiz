@@ -2,6 +2,8 @@ import styles from "@styles/Home.module.css";
 
 import Head from "next/head";
 
+import fizzBuzz from "../utils/fizzBuzz";
+
 export const EMPTY_RESULT_HINT = "Geben Sie einen Werte > 1 ein in das Formular ein.";
 
 function Home() {
