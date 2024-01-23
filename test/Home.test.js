@@ -15,8 +15,13 @@ describe("<Home/>...", () => {
             screen.getByRole("heading", {name: "FizzBuzz - Bewerber Quiz", level: 1});
         });
 
-        it.todo("input for target digit");
-
+       // it.todo("input for target digit");
+        it("renders the input for target digit", () => {
+            render(<Home />);
+            const input = screen.getByRole('spinbutton');
+            expect(input).toBeInTheDocument();
+        });
+        
         it.todo("submit button");
 
         it.todo("hint text that a digit greater 0 has to be submitted");
