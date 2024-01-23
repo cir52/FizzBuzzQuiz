@@ -5,7 +5,7 @@ import Head from "next/head";
 import fizzBuzz from "../utils/fizzBuzz";
 import { useState } from "react";
 
-export const EMPTY_RESULT_HINT = "Geben Sie einen Werte > 1 ein in das Formular ein.";
+export const EMPTY_RESULT_HINT = "Geben Sie einen Wert > 0 in das Formular ein.";
 
 function Home() {
     
@@ -44,19 +44,21 @@ function Home() {
             </Head>
 
             <main className={styles.main}>
-                <h1>FizzBuzz - Bewerber Quiz</h1>
 
-                <form onSubmit={handleSubmit}>
+                <h1 className={styles.title}>FizzBuzz - Bewerber Quiz</h1>
+
+                <form className={styles.inputForm} onSubmit={handleSubmit}>
                     <input
                         type="number"
                         value={inputValue}
                         onChange={handleChange}
                         onFocus={handleFocus}
+                        className={styles.input}
                     />
-                    <button type="submit">Submit</button>
+                    <button type="submit" className={styles.button}>Submit</button>
                 </form>
                 
-                {error && <div>{error}</div>}
+                {error && <div className={styles.error}>{error}</div>}
 
                 <ul className={styles.result}>
                     {result.length === 0 ? (
