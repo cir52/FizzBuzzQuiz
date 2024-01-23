@@ -34,7 +34,7 @@ function Home() {
         setResult([]);
         setError('');
     };
-    
+
     return (
         <>
             <Head>
@@ -58,7 +58,7 @@ function Home() {
                 
                 {error && <div>{error}</div>}
 
-                <ul>
+                <ul className={styles.result}>
                     {result.length === 0 ? (
                         <li>{EMPTY_RESULT_HINT}</li>
                     ) : (
