@@ -58,9 +58,21 @@ describe("<Home/>...", () => {
                 expect(resultItem).toBeInTheDocument();
             });
 
-            it.todo("Buzz has to be rendered");
+            // it.todo("Buzz has to be rendered");
+            it("renders 'Buzz' when a multiple of 5 is submitted", () => {
+                render(<Home/>);
+                submitFormWith(5);
+                const resultItem = screen.getByText('Buzz', {selector: '.result li'});
+                expect(resultItem).toBeInTheDocument();
+            });
 
-            it.todo("FizzBuzz has to be rendered");
+            //it.todo("FizzBuzz has to be rendered");
+            it("renders 'FizzBuzz' when a number that is a multiple of both 3 and 5 is submitted", () => {
+                render(<Home/>);
+                submitFormWith(15);
+                const resultItem = screen.getByText('FizzBuzz', {selector: '.result li'});
+                expect(resultItem).toBeInTheDocument();
+            });
 
         });
 
