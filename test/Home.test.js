@@ -50,7 +50,13 @@ describe("<Home/>...", () => {
                 screen.getByText(/^2$/, {selector: ".result li"});
             });
 
-            it.todo("Fizz has to be rendered");
+            // it.todo("Fizz has to be rendered");
+            it("renders 'Fizz' when a multiple of 3 is submitted", () => {
+                render(<Home/>);
+                submitFormWith(3);
+                const resultItem = screen.getByText('Fizz', {selector: '.result li'});
+                expect(resultItem).toBeInTheDocument();
+            });
 
             it.todo("Buzz has to be rendered");
 
