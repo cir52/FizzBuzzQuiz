@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from "@testing-library/react";
+import {fireEvent, render, screen, waitFor} from "@testing-library/react";
 import Home, {EMPTY_RESULT_HINT} from "@pages/";
 
 describe("<Home/>...", () => {
@@ -81,13 +81,17 @@ describe("<Home/>...", () => {
     });
 
     it("clears result list when input gains focus", async () => {
-        render(<Home value={3}/>);
-
-        expect(screen.getAllByText("Fizz", {selector: ".result li"})).toHaveLength(1);
-
+        render(<Home/>);
+    
+        submitFormWith(3);
+        expect(screen.getByText('Fizz', {selector: '.result li'})).toBeInTheDocument();
+    
         gainFocusOnInput();
-
-        await screen.findByText(EMPTY_RESULT_HINT, {selector: ".result"});
+    
+        await waitFor(() => {
+            expect(screen.queryByText('Fizz', {selector: '.result li'})).toBeNull();
+            expect(screen.getByText(EMPTY_RESULT_HINT, {selector: '.result li'})).toBeInTheDocument();
+        });
     });
 
     function submitFormWith(digit){
