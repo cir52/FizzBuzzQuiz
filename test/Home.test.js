@@ -21,8 +21,13 @@ describe("<Home/>...", () => {
             const input = screen.getByRole('spinbutton');
             expect(input).toBeInTheDocument();
         });
-        
-        it.todo("submit button");
+
+        // it.todo("submit button");
+        it("renders the submit button", () => {
+            render(<Home/>);
+            const button = screen.getByRole('button', { name: /submit/i });
+            expect(button).toBeInTheDocument();
+        });
 
         it.todo("hint text that a digit greater 0 has to be submitted");
 
