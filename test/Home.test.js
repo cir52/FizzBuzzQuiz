@@ -76,7 +76,13 @@ describe("<Home/>...", () => {
 
         });
 
-        it.todo("error message when a digit lower than 1 was submitted");
+        // it.todo("error message when a digit lower than 1 was submitted");
+        it("renders an error message when a digit lower than 1 is submitted", () => {
+            render(<Home/>);
+            submitFormWith(0);
+            const errorMessage = screen.getByText(/enter a digit greater than 0/i);
+            expect(errorMessage).toBeInTheDocument();
+        });
 
     });
 
