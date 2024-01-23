@@ -80,7 +80,7 @@ describe("<Home/>...", () => {
         it("renders an error message when a digit lower than 1 is submitted", () => {
             render(<Home/>);
             submitFormWith(0);
-            const errorMessage = screen.getByText(/enter a digit greater than 0/i);
+            const errorMessage = screen.getByText(/Der Wert sollte groesser 0 sein/i);
             expect(errorMessage).toBeInTheDocument();
         });
 
